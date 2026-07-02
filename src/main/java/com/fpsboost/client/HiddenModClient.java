@@ -11,6 +11,7 @@ import net.minecraft.item.Items;
 import net.minecraft.screen.slot.SlotActionType;
 import net.minecraft.text.Text;
 import net.minecraft.util.Hand;
+import net.minecraft.util.math.Vec3d;
 
 public class HiddenModClient implements ClientModInitializer {
     public static boolean enabled = false;
@@ -36,7 +37,7 @@ public class HiddenModClient implements ClientModInitializer {
                 }
             }
 
-            // Totem Swap
+            // Totem Swap (Inventory check)
             if (client.currentScreen instanceof net.minecraft.client.gui.screen.ingame.InventoryScreen) {
                 if (client.player.getInventory().getCursorStack().isOf(Items.TOTEM_OF_UNDYING)) {
                     client.interactionManager.clickSlot(client.player.currentScreenHandler.syncId, 45, 0, SlotActionType.SWAP, client.player);
